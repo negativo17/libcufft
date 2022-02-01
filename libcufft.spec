@@ -5,7 +5,7 @@
 %global major_package_version 11-6
 
 Name:           libcufft
-Epoch:          1
+Epoch:          2
 Version:        10.7.0.55
 Release:        1%{?dist}
 Summary:        NVIDIA CUDA Fast Fourier Transform library (cuFFT) libraries
@@ -35,6 +35,9 @@ GPU without having to develop your own custom GPU FFT implementation.
 Summary:        Development files for CUDA Fast Fourier Transform library (cuFFT)
 Requires:       %{name}%{_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Conflicts:      %{name}-devel-%{major_package_version} < %{?epoch:%{epoch}:}%{version}
+# Drop in 11.7:
+Provides:       cuda-cufft-devel = %{?epoch:%{epoch}:}%{version}-%{release}
+Obsoletes:      cuda-cufft-devel < %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description devel
 This package provides development files for the NVIDIA CUDA Fast Fourier
@@ -43,6 +46,9 @@ Transform library (cuFFT) libraries.
 %package static
 Summary:        Static libraries for CUDA Fast Fourier Transform library (cuFFT)
 Requires:       %{name}-devel%{_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
+# Drop in 11.7:
+Provides:       cuda-cufft-static = %{?epoch:%{epoch}:}%{version}-%{release}
+Obsoletes:      cuda-cufft-static < %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description static
 This package contains static libraries for CUDA Fast Fourier Transform library
@@ -100,6 +106,6 @@ sed -i \
 %{_libdir}/libcufftw_static.a
 
 %changelog
-* Wed Jan 26 2022 Simone Caronni <negativo17@gmail.com> - 1:10.7.0.55-1
+* Wed Jan 26 2022 Simone Caronni <negativo17@gmail.com> - 2:10.7.0.55-1
 - First build with the new tarball components.
 
