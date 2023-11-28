@@ -6,7 +6,7 @@
 
 Name:           libcufft
 Epoch:          2
-Version:        11.0.8.103
+Version:        11.0.12.1
 Release:        1%{?dist}
 Summary:        NVIDIA CUDA Fast Fourier Transform library (cuFFT) libraries
 License:        CUDA Toolkit
@@ -15,7 +15,7 @@ ExclusiveArch:  x86_64 ppc64le aarch64
 
 Source0:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-x86_64/%{name}-linux-x86_64-%{version}-archive.tar.xz
 Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-ppc64le/%{name}-linux-ppc64le-%{version}-archive.tar.xz
-Source2:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-aarch64/%{name}-linux-aarch64-%{version}-archive.tar.xz
+Source2:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-sbsa/%{name}-linux-sbsa-%{version}-archive.tar.xz
 Source3:        cufft.pc
 Source4:        cufftw.pc
 
@@ -64,7 +64,7 @@ This package contains static libraries for CUDA Fast Fourier Transform library
 %endif
 
 %ifarch aarch64
-%setup -q -T -b 2 -n %{name}-linux-aarch64-%{version}-archive
+%setup -q -T -b 2 -n %{name}-linux-sbsa-%{version}-archive
 %endif
 
 %install
@@ -106,6 +106,9 @@ sed -i \
 %{_libdir}/libcufftw_static.a
 
 %changelog
+* Tue Nov 28 2023 Simone Caronni <negativo17@gmail.com> - 2:11.0.12.1-1
+- Update to 11.0.12.1.
+
 * Thu Sep 28 2023 Simone Caronni <negativo17@gmail.com> - 2:11.0.8.103-1
 - Update to 11.0.8.103.
 
