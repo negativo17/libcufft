@@ -94,7 +94,6 @@ sed -i \
 
 %files static
 %{_libdir}/libcufft_static.a
-%{_libdir}/libcufft_static_nocallback.a
 %{_libdir}/libcufftw_static.a
 
 %changelog
