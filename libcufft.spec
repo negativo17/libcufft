@@ -84,6 +84,7 @@ sed -i \
 
 %files devel
 %{_includedir}/cudalibxt.h
+%{_includedir}/cufft_device.h
 %{_includedir}/cufft.h
 %{_includedir}/cufftw.h
 %{_includedir}/cufftXt.h
